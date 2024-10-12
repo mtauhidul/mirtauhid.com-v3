@@ -14,13 +14,13 @@ export default function Page() {
         priority
       />
 
-      <h3 className="text-4xl font-medium text-gray-700 mb-2">Hello! I’m-</h3>
+      <h3 className="text-4xl font-medium text-gray-600 mb-2">Hello! I’m-</h3>
       <h1 className="mb-8 text-7xl font-extrabold tracking-tight">
         Mir Tauhidul Islam
       </h1>
-      <h3 className="text-4xl font-medium text-gray-700 mb-8">
+      <h3 className="text-4xl font-medium text-gray-600 mb-8">
         A self-taught{" "}
-        <span className="text-gray-400 font-extrabold">
+        <span className="text-gray-700 dark:text-gray-400 font-extrabold">
           Web Application Developer
         </span>{" "}
         <br />
@@ -28,7 +28,7 @@ export default function Page() {
       </h3>
 
       <div className="prose prose-neutral dark:prose-invert">
-        <p className="text-xl text-gray-500 font-medium leading-relaxed mb-6">
+        <p className="text-xl text-gray-600 dark:text-gray-500 font-medium leading-relaxed mb-6">
           🚀 Specializing in modern web technologies (JavaScript/React/Node.js)
           <br />⚡ Freelance Web Developer at{" "}
           <a
