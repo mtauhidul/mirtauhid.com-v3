@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { formatDate, getBlogPosts } from "app/lib/posts";
+import Link from "next/link";
 
 export const metadata = {
   title: "Blog",
@@ -11,7 +11,10 @@ export default function BlogPosts() {
 
   return (
     <section>
-      <h1 className="mb-8 text-2xl font-medium tracking-tight">Our Blog</h1>
+      <h1 className="mb-4 text-6xl font-bold tracking-tight">Blog</h1>
+      <p className="text-2xl mb-8 text-gray-500 font-medium">
+        Weaving Words on Innovation, Ideas, and the Art of Crafting Solutions.
+      </p>
       <div>
         {allBlogs
           .sort((a, b) => {

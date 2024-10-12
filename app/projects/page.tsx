@@ -1,4 +1,4 @@
-import React from "react";
+import ProjectCard from "app/components/project-card";
 import type { Metadata } from "next";
 import { projects } from "./project-data";
 
@@ -10,30 +10,13 @@ export const metadata: Metadata = {
 export default function Projects() {
   return (
     <section>
-      <h1 className="mb-8 text-2xl font-medium tracking-tight">Projects</h1>
-      <div className="space-y-6">
+      <h1 className="mb-4 text-6xl font-bold tracking-tight">Projects</h1>
+      <p className="text-2xl mb-8 text-gray-500 font-medium">
+        Crafting interactive web applications with advanced functionality.
+      </p>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
         {projects.map((project, index) => (
-          <a
-            key={index}
-            href={project.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block group hover:opacity-80 transition-opacity duration-200"
-          >
-            <div className="flex flex-col">
-              <div className="w-full flex justify-between items-baseline">
-                <span className="text-black dark:text-white font-medium tracking-tight">
-                  {project.title}
-                </span>
-                <span className="text-neutral-600 dark:text-neutral-400 tabular-nums text-sm">
-                  {project.year}
-                </span>
-              </div>
-              <p className="prose prose-neutral dark:prose-invert pt-3">
-                {project.description}
-              </p>
-            </div>
-          </a>
+          <ProjectCard key={index} project={project} />
         ))}
       </div>
     </section>

@@ -27,4 +27,11 @@ export const projects: Project[] = [
       "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam veritatis dolorem rem praesentium dicta labore, at laudantium quisquam.",
     url: "https://example.com/",
   },
+  {
+    title: "Project Four",
+    year: 2020,
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam veritatis dolorem rem praesentium dicta labore, at laudantium quisquam.",
+    url: "https://example.com/",
+  },
 ];
