@@ -8,8 +8,8 @@ export const metaData = {
 };
 
 export const socialLinks = {
-  github: "https://github.com/1msirius/Nextfolio",
-  linkedin: "https://www.linkedin.com/",
-  email: "mailto:example@gmail.com",
+  github: "https://github.com/mtauhidul",
+  linkedin: "https://www.linkedin.com/in/mirtauhid",
+  email: "mailto:mislam.tauhidul@gmail.com",
   resume: "/resume.pdf",
 };
