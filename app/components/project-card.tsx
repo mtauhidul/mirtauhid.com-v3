@@ -20,7 +20,7 @@ const ProjectCard = ({ project }) => {
       </a>
 
       <div className="px-6 py-4">
-        <div className="font-bold text-xl mb-2 text-gray-800 dark:text-gray-300">
+        <div className="font-bold text-2xl mb-2 text-gray-800 dark:text-gray-300">
           Project Title
         </div>
         <p className="text-gray-700 dark:text-gray-500 text-base font-medium">

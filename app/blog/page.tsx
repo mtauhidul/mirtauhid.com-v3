@@ -1,5 +1,6 @@
 import { formatDate, getBlogPosts } from "app/lib/posts";
 import Link from "next/link";
+import { FaArrowRight } from "react-icons/fa6";
 
 export const metadata = {
   title: "Blog",
@@ -12,9 +13,10 @@ export default function BlogPosts() {
   return (
     <section>
       <h1 className="mb-4 text-6xl font-bold tracking-tight">Blog</h1>
-      <p className="text-2xl mb-8 text-gray-500 font-medium">
+      <p className="text-2xl mb-4 text-gray-500 font-medium">
         Weaving Words on Innovation, Ideas, and the Art of Crafting Solutions.
       </p>
+      <div className="border-t border-gray-800 mb-8"></div>
       <div>
         {allBlogs
           .sort((a, b) => {
@@ -27,20 +29,35 @@ export default function BlogPosts() {
             return 1;
           })
           .map((post) => (
-            <Link
+            <div
               key={post.slug}
-              className="flex flex-col space-y-1 mb-4 transition-opacity duration-200 hover:opacity-80"
-              href={`/blog/${post.slug}`}
+              className="w-full flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-1 sm:space-y-0 sm:space-x-2"
             >
-              <div className="w-full flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-1 sm:space-y-0 sm:space-x-2">
-                <p className="text-black dark:text-white tracking-tight">
+              <div className="mb-6">
+                <p className="text-2xl text-black dark:text-white tracking-tight font-bold">
                   {post.metadata.title}
                 </p>
-                <p className="text-neutral-600 dark:text-neutral-400 tabular-nums text-sm">
+                <p className="text-lg font-medium text-neutral-600 dark:text-neutral-400">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+
+                <Link
+                  href={`/blog/${post.slug}`}
+                  className="text-green-500 dark:text-green-400 font-medium flex 
+                  items-center space-x-1 cursor-pointer transition-transform duration-200 hover:translate-x-2 max-w-max"
+                >
+                  Read More <FaArrowRight className="ml-1" />
+                </Link>
+              </div>
+              <div>
+                <p className="text-green-500 dark:text-green-400 font-medium tabular-nums text-sm">
                   {formatDate(post.metadata.publishedAt, false)}
                 </p>
+                <p className="text-gray-600 dark:text-gray-400  font-medium tabular-nums text-sm mb-8">
+                  2 min read
+                </p>
               </div>
-            </Link>
+            </div>
           ))}
       </div>
     </section>
