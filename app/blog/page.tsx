@@ -10,6 +10,14 @@ export const metadata = {
 export default function BlogPosts() {
   let allBlogs = getBlogPosts();
 
+  // A function to calculate the estimated reading time of a blog post
+  function calculateReadingTime(post) {
+    const wordsPerMinute = 200;
+    const text = post.content;
+    const numberOfWords = text.split(/\s/g).length;
+    return Math.ceil(numberOfWords / wordsPerMinute);
+  }
+
   return (
     <section>
       <h1 className="mb-4 text-6xl font-bold tracking-tight">Blog</h1>
@@ -54,7 +62,7 @@ export default function BlogPosts() {
                   {formatDate(post.metadata.publishedAt, false)}
                 </p>
                 <p className="text-gray-600 dark:text-gray-400  font-medium tabular-nums text-sm mb-8">
-                  2 min read
+                  {calculateReadingTime(post)} min read
                 </p>
               </div>
             </div>
