@@ -1,0 +1,103 @@
+---
+title: "React Class Components: A Quick and Essential Overview"
+publishedAt: "2024-10-12"
+summary: "A comprehensive overview of React Class Components and their lifecycle methods, with examples."
+tags: "React, Class Components, JavaScript, Web Development"
+coverImage: "/blog-01.png"
+---
+
+<Image
+  src="/blog-01.png"
+  alt="React Lifecycle Diagram"
+  width={640}
+  height={500}
+/>
+
+React 16.8 introduced hooks, which opened a new way of managing state and lifecycle methods in functional components. Before hooks, React relied on JavaScript Class Components for this functionality.
+
+## React Class Component Syntax
+
+In Class Components, a component extends from `React.Component`, and the `render` method is used to output what gets displayed on the screen.
+
+```jsx
+import React from "react";
+
+class App extends React.Component {
+  render() {
+    return <h1>Hello, World!</h1>;
+  }
+}
+
+export default App;
+```
+
+## State in Class Components
+
+Unlike functional components that use the `useState` hook, Class Components manage state using an object, typically defined in the constructor.
+
+```jsx
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { message: "Hello, World!" };
+  }
+
+  render() {
+    return <h1>{this.state.message}</h1>;
+  }
+}
+```
+
+## Lifecycle Methods of Class Components
+
+Class Components have specific methods that run at different stages of a component's lifecycle. The key lifecycle methods are:
+
+- **componentDidMount()**: Runs once after the component is added to the page, typically used for data fetching.
+- **componentDidUpdate()**: Runs after the component updates.
+- **componentWillUnmount()**: Runs just before the component is removed from the page, useful for cleanup.
+
+```jsx
+class App extends React.Component {
+  componentDidMount() {
+    console.log("Component mounted!");
+  }
+
+  render() {
+    return <h1>Hello, World!</h1>;
+  }
+}
+```
+
+## Updating State in Class Components
+
+To update the state, you use the `this.setState` method. Each time `setState` is called, React re-renders the component.
+
+```jsx
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { count: 0 };
+  }
+
+  increment = () => {
+    this.setState({ count: this.state.count + 1 });
+  };
+
+  render() {
+    return (
+      <div>
+        <p>Count: {this.state.count}</p>
+        <button onClick={this.increment}>Increment</button>
+      </div>
+    );
+  }
+}
+```
+
+## Why Functional Components Are Better
+
+- No need for `this`.
+- You can manage multiple state variables using the `useState` hook.
+- Instead of lifecycle methods, you can use the `useEffect` hook to better manage side effects.
+
+Today, Class Components are mainly used in older projects. For new projects, Functional Components with hooks are the recommended approach.

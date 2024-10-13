@@ -9,23 +9,22 @@ const ProjectCard = ({ project }) => {
       "
     >
       <a
-        href="/project-detail"
+        href={`/projects/${project.slug}`}
         className="block hover:opacity-90 transition-opacity duration-200"
       >
         <img
           className="w-full h-48 object-cover"
-          src="https://via.placeholder.com/400x300"
+          src="https://picsum.photos/seed/picsum/400/300"
           alt="Project Image"
         />
       </a>
 
       <div className="px-6 py-4">
         <div className="font-bold text-2xl mb-2 text-gray-800 dark:text-gray-300">
-          Project Title
+          {project.metadata.title}
         </div>
         <p className="text-gray-700 dark:text-gray-500 text-base font-medium">
-          A brief description of the project goes here, explaining the purpose
-          and core functionality.
+          {project.metadata.summary}
         </p>
       </div>
 
