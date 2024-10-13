@@ -14,7 +14,7 @@ const ProjectCard = ({ project }) => {
       >
         <img
           className="w-full h-48 object-cover"
-          src="https://picsum.photos/seed/picsum/400/300"
+          src={`/projects/${project.slug}.png`}
           alt="Project Image"
         />
       </a>
