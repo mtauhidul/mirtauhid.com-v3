@@ -89,14 +89,15 @@ export default function Project({ params }) {
           }),
         }}
       />
-      <h1 className="title mb-3 font-medium text-2xl tracking-tight">
+      <h1 className="title mb-3 font-bold text-6xl tracking-tight ">
         {project.metadata.title}
       </h1>
-      <div className="flex justify-between items-center mt-2 mb-8 text-medium">
-        <p className="text-sm text-neutral-600 dark:text-neutral-400">
-          {formatDate(project.metadata.completedAt)}
+      <div className="flex justify-between items-center mt-2 mb-4 text-medium">
+        <p className="text-xl font-medium text-green-600 dark:text-green-400">
+          ⚡️ Mir Tauhidul Islam • {formatDate(project.metadata.completedAt)}
         </p>
       </div>
+      <div className="border-t border-gray-800 mb-8"></div>
       <article className="prose prose-quoteless prose-neutral dark:prose-invert">
         <CustomMDX source={project.content} />
       </article>

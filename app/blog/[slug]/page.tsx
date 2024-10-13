@@ -1,8 +1,8 @@
+import { CustomMDX } from "app/components/mdx";
+import { metaData } from "app/config";
+import { formatDate, getBlogPosts } from "app/lib/posts";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { CustomMDX } from "app/components/mdx";
-import { formatDate, getBlogPosts } from "app/lib/posts";
-import { metaData } from "app/config";
 
 export async function generateStaticParams() {
   let posts = getBlogPosts();
@@ -61,6 +61,13 @@ export default function Blog({ params }) {
     notFound();
   }
 
+  function calculateReadingTime(post) {
+    const wordsPerMinute = 200;
+    const text = post.content;
+    const numberOfWords = text.split(/\s/g).length;
+    return Math.ceil(numberOfWords / wordsPerMinute);
+  }
+
   return (
     <section>
       <script
@@ -85,14 +92,16 @@ export default function Blog({ params }) {
           }),
         }}
       />
-      <h1 className="title mb-3 font-medium text-2xl tracking-tight">
+      <h1 className="title mb-3 font-bold text-6xl tracking-tight ">
         {post.metadata.title}
       </h1>
-      <div className="flex justify-between items-center mt-2 mb-8 text-medium">
-        <p className="text-sm text-neutral-600 dark:text-neutral-400">
-          {formatDate(post.metadata.publishedAt)}
+      <div className="flex justify-between items-center align-center mt-2 mb-4 text-medium">
+        <p className="text-xl font-medium text-green-600 dark:text-green-400">
+          ⚡️ mirtauhid • {formatDate(post.metadata.publishedAt)} •{" "}
+          {calculateReadingTime(post)} min read
         </p>
       </div>
+      <div className="border-t border-gray-800 mb-8"></div>
       <article className="prose prose-quoteless prose-neutral dark:prose-invert">
         <CustomMDX source={post.content} />
       </article>
