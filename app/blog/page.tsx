@@ -39,14 +39,26 @@ export default function BlogPosts() {
           .map((post) => (
             <div
               key={post.slug}
-              className="w-full flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-1 sm:space-y-0 sm:space-x-2"
+              className="w-full flex flex-col sm:flex-row justify-between items-start space-y-1 sm:space-y-0 sm:space-x-2 mb-8 sm:mb-4
+              "
             >
               <div className="mb-6">
-                <p className="text-2xl text-black dark:text-white tracking-tight font-bold">
+                <p className="text-2xl text-black dark:text-white tracking-tight font-bold max-w-xl">
                   {post.metadata.title}
                 </p>
-                <p className="text-lg font-medium text-neutral-600 dark:text-neutral-400">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                <div className="sm:hidden flex flex-col items-start space-y-1 mb-4 mt-4 ">
+                  <p className="text-green-500 dark:text-green-400 font-medium tabular-nums">
+                    {formatDate(post.metadata.publishedAt, false)}
+                  </p>
+                  <p className="text-gray-600 dark:text-gray-400  font-medium tabular-nums text-sm mb-8">
+                    {calculateReadingTime(post)} min read
+                  </p>
+                </div>
+                <p
+                  className="text-lg font-medium text-neutral-600 dark:text-neutral-400 max-w-xl
+                  "
+                >
+                  {post.metadata.summary}
                 </p>
 
                 <Link
@@ -57,8 +69,8 @@ export default function BlogPosts() {
                   Read More <FaArrowRight className="ml-1" />
                 </Link>
               </div>
-              <div>
-                <p className="text-green-500 dark:text-green-400 font-medium tabular-nums text-sm">
+              <div className="flex flex-col items-start space-y-1 mb-4 mt-4  hidden sm:flex">
+                <p className="text-green-500 dark:text-green-400 font-medium tabular-nums">
                   {formatDate(post.metadata.publishedAt, false)}
                 </p>
                 <p className="text-gray-600 dark:text-gray-400  font-medium tabular-nums text-sm mb-8">

@@ -1,0 +1,124 @@
+---
+title: "The Expanding World of Serverless Systems: Leveraging Firestore with React"
+publishedAt: "2021-06-06"
+summary: "An overview of how to use Google Firestore, a cloud-based NoSQL database, with React for building serverless applications."
+tags: "Firestore, React, Serverless, Firebase"
+image: "/blog/expanding-world-serverless-firestore-react.webp"
+---
+
+<Image
+  src="/blog/expanding-world-serverless-firestore-react.webp"
+  alt="Firestore and React"
+  width={640}
+  height={500}
+/>
+
+Serverless architecture is rapidly gaining popularity as it simplifies the development process by eliminating the need for a traditional backend server. One of the leading solutions in this space is Google Firebase’s Firestore, a scalable, cloud-based NoSQL database. Firestore handles all server-side management, allowing developers to focus solely on building their applications without worrying about backend infrastructure.
+
+---
+
+## Setting Up Firestore: A Step-by-Step Guide
+
+To create a Firestore database, follow these simple steps:
+
+1. **Create a Firebase Project**: Start by navigating to the Firebase console and creating a new project.
+2. **Enable Firestore**: Once your project is set up, find Firestore in the left sidebar of the Firebase console and enable it.
+3. **Create a Database**: After enabling Firestore, you can create your first database. Within this database, you can create multiple collections, each containing various documents that store your data.
+
+---
+
+## Integrating Firestore with a React Project
+
+Integrating Firestore with a React application is straightforward. Here’s how to do it:
+
+1. **Install Firebase and Firestore**: Use NPM or Yarn to install Firebase in your React project:
+
+```bash
+npm install firebase
+# or
+yarn add firebase
+```
+
+2. **Set Up Firebase Configuration**: Create a `firebase.js` file inside your `src` folder and add your Firebase configuration. This file will initialize Firebase and Firestore for use throughout your application.
+
+```js
+// firebase.js
+import firebase from "firebase/app";
+import "firebase/firestore";
+
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_AUTH_DOMAIN",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_STORAGE_BUCKET",
+  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+  appId: "YOUR_APP_ID",
+};
+
+const firebaseApp = firebase.initializeApp(firebaseConfig);
+const db = firebaseApp.firestore();
+
+export { db };
+```
+
+---
+
+## Performing CRUD Operations with Firestore
+
+Now that Firestore is integrated into your project, you can easily perform CRUD (Create, Read, Update, Delete) operations.
+
+### Add Data to Firestore
+
+```js
+import { db } from './firebase';
+
+async function addData() {
+   const collectionRef = db.collection('your-collection-name');
+   const res = await collectionRef.add({     // Your data here   });
+
+   console.log('Document added with ID:', res.id);
+};
+```
+
+### Delete Data from Firestore
+
+```js
+import { db } from "./firebase";
+
+async function delData(docId) {
+  const docRef = db.collection("your-collection-name").doc(docId);
+  await docRef.delete();
+  console.log("Document deleted");
+}
+```
+
+### Update a Document in Firestore
+
+```js
+import { db } from "./firebase";
+
+async function updateData(docId, newData) {
+  const docRef = db.collection("your-collection-name").doc(docId);
+  await docRef.update(newData);
+  console.log("Document updated");
+}
+```
+
+### Retrieve Data from Firestore
+
+```js
+import { db } from "./firebase";
+
+async function getData() {
+  const snapshot = await db.collection("your-collection-name").get();
+  snapshot.forEach((doc) => {
+    console.log(`ID: ${doc.id}, Data:`, doc.data());
+  });
+}
+```
+
+By using Firestore with React, you can build powerful, scalable applications without the need to manage a backend server. Firestore’s simplicity and integration with Firebase make it an ideal choice for modern web development. With just a few lines of code, you can easily perform CRUD operations and manage your application’s data effectively.
+
+---
+
+Thank you for reading!

@@ -1,0 +1,62 @@
+---
+title: "Simplest React Hooks and JavaScript Concepts"
+publishedAt: "2020-11-07"
+summary: "An easy-to-understand explanation of React hooks and essential JavaScript concepts such as closures, truthy/falsy values, and scope."
+tags: "React, JavaScript, Web Development"
+image: "/blog/simplest-react-hooks-and-javascript-concepts.webp"
+---
+
+<Image
+  src="/blog/simplest-react-hooks-and-javascript-concepts.webp"
+  alt="React Hooks and JavaScript Concepts"
+  width={640}
+  height={500}
+/>
+
+Before the introduction of React hooks, classes were commonly used to manage the stateful behaviours of JavaScript applications. To grasp how React and its hooks function, it’s essential to first understand the concept of closures in JavaScript.
+
+---
+
+## Closures in JavaScript
+
+A closure is a combination of a function bundled together with its lexical environment. This environment allows the function to access variables from an outer function’s scope even after the outer function has finished executing. In simpler terms, closures give us the ability to retain access to the outer function’s scope from within another function’s scope.
+
+---
+
+## React Hooks and State Management
+
+React hooks, such as `useState` and `useEffect`, revolutionized how state and side effects are managed in functional components. In JavaScript, a function cannot directly access the scope of another function. However, React hooks allow us to handle stateful behaviours and UI side effects by updating the state at a higher level.
+
+- **useState**: This hook enables us to create state variables in functional components. By using `useState`, we can maintain and update the state within a component, and access this state throughout other functions within the component.
+- **useEffect**: This hook handles side effects in React components, such as fetching data from an API. When we fetch data within a function, `useEffect` allows us to set this data in the component’s state using `setState`. Once the state is updated, the data becomes accessible to any function within the component, effectively sharing the data across the entire application.
+
+---
+
+## Key JavaScript Concepts
+
+Now, let’s explore some fundamental JavaScript concepts that are often encountered in development.
+
+### 1. Truthy and Falsy Values
+
+In JavaScript, truthy values are those that evaluate to `true` in a boolean context, while falsy values evaluate to `false`. Common falsy values include `""` (empty string), `NaN`, `undefined`, `null`, `-0`, and `0`.
+
+---
+
+### 2. Null and Undefined
+
+- **Null**: Represents the intentional absence of any object value. It is a special type of object in JavaScript, and when checked with `typeof`, it returns `"object"`.
+- **Undefined**: Represents a variable that has been declared but not yet assigned a value. It is a primitive data type in JavaScript.
+
+---
+
+### 3. Double Equals (`==`) vs. Triple Equals (`===`)
+
+- `==` (double equals) compares two values for equality, performing type coercion if necessary. This means it checks whether the values are equivalent after converting them to the same type.
+- `===` (triple equals), on the other hand, compares both the values and their types, ensuring stricter equality. For instance, `1 == "1"` returns `true`, but `1 === "1"` returns `false` because the types differ.
+
+---
+
+### 4. Scope in JavaScript
+
+- **Global Scope**: Variables or functions declared in the global scope are accessible from anywhere in the code.
+- **Local Scope**: Variables declared within a function or block are only accessible within that function or block. Local scope is also referred to as block scope, and modern variable declarations using `let` and `const` are block-scoped, unlike `var` which is function-scoped.

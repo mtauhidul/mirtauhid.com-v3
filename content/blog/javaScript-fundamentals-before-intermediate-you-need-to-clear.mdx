@@ -1,0 +1,98 @@
+---
+title: "JavaScript Fundamentals: Before Intermediate, You Need to Clear"
+publishedAt: "2020-11-04"
+summary: "A comprehensive guide to JavaScript fundamentals before diving into intermediate concepts."
+tags: "JavaScript, Web Development, Programming"
+image: "/blog/javaScript-fundamentals-before-intermediate-you-need-to-clear
+---
+
+<Image
+  src="/blog/javaScript-fundamentals-before-intermediate-you-need-to-clear.png"
+  alt="Node.js"
+  width={640}
+  height={500}
+/>
+
+JavaScript is a cornerstone of web development, empowering everything from simple interactions to complex applications. Before diving into intermediate or advanced concepts, it's crucial to have a firm grasp of the fundamentals. These basics not only form the foundation of your JavaScript knowledge but also ensure you can tackle more challenging problems with confidence.
+
+## 1. Understanding Data Types
+
+JavaScript has two main categories of data types: primitive and non-primitive.
+
+- **Primitive Types**: These include String, Number, Boolean, Undefined, BigInt, and Symbol. Primitive values are immutable, meaning their value cannot be changed after creation. For example, if you assign a new value to a string variable, JavaScript creates a new string rather than modifying the original.
+
+- **Non-Primitive Types**: The most common non-primitive types are Object, Array, and Function. Unlike primitive types, non-primitive types are mutable, allowing you to modify their properties or contents.
+
+Understanding the difference between these types is essential for managing data effectively in JavaScript.
+
+## 2. Variables and Scope
+
+JavaScript variables can be declared using `var`, `let`, or `const`. Understanding the differences between these declarations is critical for managing scope and preventing bugs.
+
+- **var**: Historically, `var` was the only way to declare variables in JavaScript. However, it has function scope, meaning it's accessible throughout the function where it's declared, but not outside. This can lead to unexpected behaviour in larger codebases.
+
+- **let** and **const**: Introduced in ES6, `let` and `const` are block-scoped, meaning they are only accessible within the block they are defined in (e.g., within a loop or conditional statement). `const` is used to declare constants, variables that cannot be reassigned after their initial value is set. Understanding block scope and hoisting (how variable declarations are processed before code execution) is crucial for writing clean and bug-free JavaScript.
+
+## 3. Functions and Closures
+
+Functions are the building blocks of JavaScript. Mastering them is essential for any level of development.
+
+- **Function Declarations vs. Expressions**: A function can be declared using a function statement or as a function expression. Understanding the difference between these, particularly regarding hoisting (where function declarations are hoisted but expressions are not), is key.
+
+- **Arrow Functions**: Introduced in ES6, arrow functions provide a more concise syntax for writing functions. They also handle the `this` keyword differently, which is important when dealing with object methods and callbacks.
+
+- **Closures**: A closure is a function that remembers its lexical scope even when the function is executed outside that scope. Closures are powerful and used frequently in JavaScript for data encapsulation, callback functions, and more.
+
+## 4. Asynchronous JavaScript
+
+Modern JavaScript development often involves asynchronous operations, such as fetching data from an API or handling timeouts.
+
+- **Callbacks**: The traditional way of handling asynchronous code, callbacks are functions passed as arguments to other functions and executed after an operation is completed.
+
+- **Promises**: Introduced to solve the problems of "callback hell," promises represent the eventual completion (or failure) of an asynchronous operation and allow for more readable and manageable code.
+
+- **Async/Await**: A more recent addition to JavaScript, async and await syntax allows you to write asynchronous code that looks synchronous, making it easier to understand and debug.
+
+Understanding how to work with asynchronous code is crucial, especially as you move into more complex JavaScript development.
+
+## 5. Event Handling
+
+JavaScript is event-driven, meaning much of your code will react to events such as user clicks, page loads, or data fetching.
+
+- **Event Listeners**: Functions that listen for specific events on a webpage and execute code in response. Mastering event handling is essential for building interactive web applications.
+
+- **The Event Loop**: Understanding how JavaScript handles events in its single-threaded environment via the event loop is crucial. The event loop allows JavaScript to perform non-blocking operations, enabling the execution of multiple operations concurrently without running into issues.
+
+## 6. Manipulating the DOM
+
+The Document Object Model (DOM) represents the structure of a webpage. JavaScript interacts with the DOM to dynamically update the content, style, and structure of a webpage.
+
+- **Selecting Elements**: Using methods like `getElementById`, `querySelector`, and `querySelectorAll` to select elements on the page.
+
+- **Modifying Elements**: Changing the content, attributes, or style of elements using JavaScript.
+
+- **Event Delegation**: A technique to manage events efficiently, especially in cases where new elements are added dynamically to the DOM.
+
+## 7. Error Handling
+
+Errors are inevitable in programming. Handling them effectively ensures that your application can recover gracefully.
+
+- **Try/Catch**: A `try` block lets you test a block of code for errors, and a `catch` block handles the error if one occurs.
+
+- **Throwing Errors**: You can manually throw errors in JavaScript using the `throw` statement, which can then be caught by a `catch` block.
+
+- **Finally**: A `finally` block lets you execute code after a `try/catch`, regardless of the result. This is useful for cleanup operations.
+
+## 8. Understanding `this`
+
+The `this` keyword in JavaScript can be confusing for beginners as it behaves differently depending on the context.
+
+- **Global Context**: When used outside of any function, `this` refers to the global object (e.g., `window` in browsers).
+
+- **Function Context**: Within a regular function, `this` refers to the object that calls the function.
+
+- **Arrow Functions**: Arrow functions do not have their own `this` binding; instead, they inherit `this` from the parent scope.
+
+Understanding `this` is crucial as it affects how your functions behave when used in different contexts.
+
+Mastering these JavaScript fundamentals is essential before moving on to intermediate or advanced concepts. They provide the foundation upon which more complex ideas are built and ensure you know necessary to write efficient, bug-free code. By solidifying your understanding of data types, scope, functions, asynchronous JavaScript, and more, you'll be well-prepared to tackle the challenges that come with more advanced JavaScript development.

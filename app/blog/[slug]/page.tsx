@@ -105,6 +105,37 @@ export default function Blog({ params }) {
       <article className="prose prose-quoteless prose-neutral dark:prose-invert">
         <CustomMDX source={post.content} />
       </article>
+
+      <div className="mt-12">
+        <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200">
+          Tags
+        </h3>
+        <div className="flex flex-wrap gap-2 mt-2">
+          {post.metadata.tags.split(",").map((tag, index) => {
+            const colors = [
+              "bg-green-100 text-green-800",
+              "bg-blue-100 text-blue-800",
+              "bg-yellow-100 text-yellow-800",
+              "bg-purple-100 text-purple-800",
+              "bg-pink-100 text-pink-800",
+              "bg-red-100 text-red-800",
+              "bg-indigo-100 text-indigo-800",
+              "bg-gray-100 text-gray-800",
+            ];
+
+            const colorClass = colors[index % colors.length];
+
+            return (
+              <span
+                key={tag}
+                className={`px-2 py-1 text-sm font-medium rounded-lg ${colorClass}`}
+              >
+                {tag}
+              </span>
+            );
+          })}
+        </div>
+      </div>
     </section>
   );
 }
