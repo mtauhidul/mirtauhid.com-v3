@@ -15,7 +15,7 @@ export function Navbar() {
       <div className="flex flex-col md:flex-row md:items-center justify-between">
         <div className="flex items-center">
           <Link href="/">
-            <Image src={Logo} alt="Logo" width={40} height={40} priority />
+            <Image src={Logo} alt="Logo" width={48} height={48} priority />
           </Link>
         </div>
         <div className="flex flex-row gap-4 mt-6 md:mt-0 md:ml-auto items-center">

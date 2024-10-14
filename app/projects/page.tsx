@@ -14,7 +14,8 @@ export default function Projects() {
     <section>
       <h1 className="mb-4 text-6xl font-bold tracking-tight">Projects</h1>
       <p className="text-2xl mb-4 text-gray-500 font-medium">
-        Crafting interactive web applications with advanced functionality.
+        Featured projects focused on performance, interactivity, and
+        functionality.
       </p>
       <div className="border-t border-gray-800 mb-8"></div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-20">

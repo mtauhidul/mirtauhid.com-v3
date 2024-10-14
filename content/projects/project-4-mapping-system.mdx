@@ -1,35 +1,56 @@
-
 ---
-title: "Interactive Web Mapping System for Data Analysis"
-completedAt: "2024-01-15"
-summary: "An interactive mapping system that allows users to visualize and analyze geospatial data for better decision-making."
-tags: "Geospatial, Mapping, Web Development, JavaScript"
-image: "/images/web-mapping.png"
----
-
-## Project Overview
-
-The Interactive Web Mapping System is designed to allow users to analyze geospatial data interactively. The system supports data upload, real-time updates, and various visualization tools to explore data on a map.
-
-### Features
-
-- Geospatial data upload and processing.
-- Interactive map with zoom, pan, and layers.
-- Data-driven decision-making with customizable visualizations.
-- Real-time data updates and overlays.
-
-### Technologies Used
-
-- **Frontend**: React, Leaflet.js for maps
-- **Backend**: Node.js, Express
-- **Other**: Mapbox API, Firebase for real-time updates
-
+title: "Maplysis - Geo Data Analysis Tool"
+completedAt: "2024-09-13"
+summary: "A Geo data analysis tool that helps organizations make informed decisions using location data and advanced algorithms."
+tags: "JavaScript, React, MUI, Google Maps, Data Visualization, CSV, Excel, Geo Data, Vercel"
+image: "/projects/project-4-mapping-system.png"
 ---
 
-## Challenges Faced
+# Maplysis
 
-- Handling large datasets and ensuring smooth performance on the front end.
-- Optimizing map rendering for multiple layers and real-time updates.
-- Ensuring cross-browser compatibility and responsiveness.
+![Maplysis Logo](/projects/maplysis/logo.png)
 
----
+**Maplysis** is a powerful, yet simple tool developed for **Geo data analysis** and **decision-making**. A very similar algorithm to **K-nearest-neighbor** is used to identify target zip codes and visualize them on an interactive map.
+
+## A Real-World Use Case
+
+Imagine an organization that wants to conduct **medical camps** at various points across the country for specific **health-related campaigns**. Instead of targeting every state, they are looking for strategic points from where they can access the majority of patients.
+
+They already have the **zip codes** and the corresponding number of patients. Using **Maplysis**, they can:
+
+- Upload an **Excel file** containing the zip codes and patient data (**dre**).
+- Set an appropriate **radius** and the **minimum number of patients** required under a zip code for that area to be eligible for a camp.
+- **Visualize the target zip codes** on the map to cover the majority of the patients.
+
+![A real example](/projects/maplysis/maplysis-2.png)
+
+After generating the map, they can visually analyze the data and download the generated **Excel file**. The file will provide the target zip codes, their corresponding **dre’s**, and the **average distance** from nearby zip codes, helping in effective decision-making.
+
+![A real example](/projects/maplysis/maplysis-3.png)
+
+Generated Excel file.
+
+## Tools Used
+
+Maplysis was developed using the following technologies:
+
+- **Frontend**: Built with **React** and **Material UI** for a clean and user-friendly interface.
+- **JavaScript**: Utilized for logic building and algorithm implementation.
+- **Google Maps**: Implemented for **data visualization**.
+- **File Support**: Accepts **Excel/CSV files** for data input and result generation.
+- **Deployment**: The platform is hosted on **Vercel** for seamless access.
+
+## How to Use Maplysis
+
+![A real example](/projects/maplysis/maplysis-1.png)
+
+1. Visit the platform: [maplysis.com](http://maplysis.com)
+2. Download the demo **Excel file** for testing purposes.
+3. Upload the **Excel file** to the platform.
+4. Set the **radius** to under 10 miles and the **minimum patient count** to 7 or 8.
+5. Click **Generate** to see the map visualization.
+6. Zoom in or out to explore the result, and click **Download** to get a file with the identified target zip codes and other relevant data.
+
+![Maplysis ](/projects/maplysis/maplysis-4.png)
+
+Maplysis provides a simple, yet powerful solution for **geo-based decision-making**, helping organizations optimize their efforts by focusing on areas with the highest impact.

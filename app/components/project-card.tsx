@@ -31,15 +31,31 @@ const ProjectCard = ({ project }) => {
       <div className="border-t border-gray-200 dark:border-gray-800"></div>
 
       <div className="px-6 pt-4 pb-2">
-        <span className="inline-block bg-gray-300 dark:bg-gray-700 text-gray-900 dark:text-gray-200 rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2">
-          #JavaScript
-        </span>
-        <span className="inline-block bg-gray-300 dark:bg-gray-700 text-gray-900 dark:text-gray-200 rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2">
-          #React
-        </span>
-        <span className="inline-block bg-gray-300 dark:bg-gray-700 text-gray-900 dark:text-gray-200 rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2">
-          #Node.js
-        </span>
+        <div className="flex flex-wrap gap-2 mt-2">
+          {project.metadata.tags.split(",").map((tag, index) => {
+            const colors = [
+              "bg-green-100 text-green-800",
+              "bg-blue-100 text-blue-800",
+              "bg-yellow-100 text-yellow-800",
+              "bg-purple-100 text-purple-800",
+              "bg-pink-100 text-pink-800",
+              "bg-red-100 text-red-800",
+              "bg-indigo-100 text-indigo-800",
+              "bg-gray-100 text-gray-800",
+            ];
+
+            const colorClass = colors[index % colors.length];
+
+            return (
+              <span
+                key={tag}
+                className={`px-2.5 py-1 text-xs font-semibold rounded-lg inline-block ${colorClass} hover:opacity-90 transition-opacity duration-200 ease-in-out`}
+              >
+                {tag}
+              </span>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

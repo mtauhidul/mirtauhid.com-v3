@@ -22,7 +22,7 @@ export default function BlogPosts() {
     <section>
       <h1 className="mb-4 text-6xl font-bold tracking-tight">Blog</h1>
       <p className="text-2xl mb-4 text-gray-500 font-medium">
-        Weaving Words on Innovation, Ideas, and the Art of Crafting Solutions.
+        Sharing insights and lessons learned from my journey.
       </p>
       <div className="border-t border-gray-800 mb-8"></div>
       <div>

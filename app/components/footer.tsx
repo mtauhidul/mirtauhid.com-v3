@@ -12,7 +12,7 @@ function SocialLink({ href, icon: Icon, tip }) {
     <a
       className="
       text-[#1C1C1C] dark:text-[#D4D4D4] 
-      hover:text-green-500 dark:hover:text-green-400 
+      hover:text-[#166534] dark:hover:text-[#dcfce7]
       transition-colors duration-300
     "
       href={href}
@@ -61,9 +61,14 @@ function SocialLinks() {
 export default function Footer() {
   return (
     <small className="block lg:mt-24 mt-16 text-md font-normal text-[#1C1C1C] dark:text-[#D4D4D4]">
-      Crafted and Built by{" "}
+      {
+        // If small screen then show only copy right symbol here or if larger screens then show the whole text "Crafted and Built by"
+      }
+      <span className="hidden sm:inline">Crafted and Built by</span>{" "}
+      <span className="inline sm:hidden">©</span>{" "}
       <a
-        className="no-underline hover:text-green-500 dark:hover:text-green-400"
+        className="no-underline text-[#1C1C1C] dark:text-[#D4D4D4] 
+      hover:text-[#166534] dark:hover:text-[#dcfce7]"
         href={metaData.baseUrl}
         target="_blank"
         rel="noopener noreferrer"
