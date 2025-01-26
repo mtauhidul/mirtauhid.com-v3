@@ -1,4 +1,11 @@
 import Image from "next/image";
+import {
+  FaBrain,
+  FaCode,
+  FaGraduationCap,
+  FaLaptopCode,
+} from "react-icons/fa6";
+
 import avatar from "../public/avatar.jpg";
 
 export default function Page() {
@@ -28,36 +35,53 @@ export default function Page() {
       </h3>
 
       <div className="prose prose-neutral dark:prose-invert">
-        <p className="text-xl text-gray-600 dark:text-gray-500 font-medium leading-relaxed mb-6">
-          🚀 Specializing in modern web technologies (JavaScript/React/Node.js)
-          <br />⚡ Freelance Web Developer at{" "}
+        <p className="text-xl text-gray-600 dark:text-gray-500 font-medium leading-tight mb-2">
+          <FaCode
+            className="inline-block text-green-400 dark:text-green-300 align-text-bottom"
+            size={24}
+          />{" "}
+          Specializing in modern web technologies (JavaScript/
+          <span className="text-green-400 font-bold">React</span>/Node.js).
+        </p>
+        <p className="text-xl text-gray-600 dark:text-gray-500 font-medium leading-tight mb-2">
+          <FaLaptopCode
+            className="inline-block text-green-400 dark:text-green-300 align-text-bottom"
+            size={24}
+          />{" "}
+          Freelance Web Developer at{" "}
           <a
             href="https://www.upwork.com/freelancers/~014d7a947089fc4227"
             target="_blank"
             rel="noopener noreferrer"
-            className="
-            no-underline
-            text-green-400
-            "
+            className="no-underline text-green-400 hover:text-green-500 dark:hover:text-green-400"
           >
-            <span className="text-green-400">UpWork</span>
+            <span className="text-green-400 font-bold">UpWork</span>
           </a>
-          , working on <span className="text-green-400">AI</span>-driven
-          projects. <br />
-          🎓 Statistics and Data Science graduate; Full Stack Certified (
+          , creating AI-powered solutions.
+        </p>
+        <p className="text-xl text-gray-600 dark:text-gray-500 font-medium leading-tight mb-2">
+          <FaGraduationCap
+            className="inline-block text-green-400 dark:text-green-300 align-text-bottom"
+            size={24}
+          />{" "}
+          Graduate in Statistics and Data Science; Full Stack Certified (
           <a
-            href="https://fullstackopen.com/en/"
+            href="https://studies.cs.helsinki.fi/stats/api/certificate/fullstackopen/en/7791e4226d19f2d21e0879c0130cdad4"
             target="_blank"
             rel="noopener noreferrer"
-            className="
-            no-underline
-            text-green-400
-            "
+            className="no-underline text-green-400 hover:text-green-500 dark:hover:text-green-400"
           >
-            <span className="text-green-400">FSO</span>
+            <span className="text-green-400 font-bold">FSO</span>
           </a>
-          ). <br />
-          🎯 Seeking opportunities for a Master’s in Software Engineering.
+          ).
+        </p>
+        <p className="text-xl text-gray-600 dark:text-gray-500 font-medium leading-tight mb-2">
+          <FaBrain
+            className="inline-block text-green-400 dark:text-green-300 align-text-bottom"
+            size={24}
+          />{" "}
+          Passionate about advancing software engineering with{" "}
+          <span className="text-green-400 font-bold">AI</span> innovation.
         </p>
       </div>
     </section>

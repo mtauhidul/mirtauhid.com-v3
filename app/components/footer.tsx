@@ -7,18 +7,31 @@ import { Tooltip } from "react-tooltip";
 
 const YEAR = new Date().getFullYear();
 
-function SocialLink({ href, icon: Icon, tip }) {
+const brandColors = {
+  github: "#333", // GitHub: Black
+  linkedin: "#0077b5", // LinkedIn: Blue
+  email: "#D93025", // Email: Red
+  resume: "#166534", // Resume: Green
+};
+
+function SocialLink({ href, icon: Icon, tip, color }) {
   return (
     <a
       className="
-      text-[#1C1C1C] dark:text-[#D4D4D4] 
-      hover:text-[#166534] dark:hover:text-[#dcfce7]
-      transition-colors duration-300
-    "
+        transition-colors duration-300
+      "
       href={href}
       target="_blank"
       rel="noopener noreferrer"
       data-tooltip-id={tip}
+      style={{
+        color: "var(--initial-color)",
+      }}
+      onMouseEnter={(e) => (e.currentTarget.style.color = color)}
+      onMouseLeave={(e) =>
+        (e.currentTarget.style.color = e.currentTarget.style.color =
+          "var(--initial-color)")
+      }
     >
       <Icon />
       <Tooltip
@@ -42,17 +55,29 @@ function SocialLink({ href, icon: Icon, tip }) {
 function SocialLinks() {
   return (
     <div className="flex text-lg gap-3.5 float-right transition-opacity duration-300 hover:opacity-90">
-      <SocialLink href={socialLinks.github} icon={FaGithub} tip="Github" />
+      <SocialLink
+        href={socialLinks.github}
+        icon={FaGithub}
+        tip="Github"
+        color="#333" // GitHub brand color
+      />
       <SocialLink
         href={socialLinks.linkedin}
         icon={FaLinkedinIn}
         tip="Linkedin"
+        color="#0077b5" // LinkedIn brand color
       />
-      <SocialLink href={socialLinks.email} icon={TbMailFilled} tip="Email" />
+      <SocialLink
+        href={socialLinks.email}
+        icon={TbMailFilled}
+        tip="Email"
+        color="#D93025" // Email red
+      />
       <SocialLink
         href={socialLinks.resume}
         icon={FaFileArrowDown}
         tip="Resume"
+        color="#166534" // Resume green
       />
     </div>
   );
@@ -61,14 +86,11 @@ function SocialLinks() {
 export default function Footer() {
   return (
     <small className="block lg:mt-24 mt-16 text-md font-normal text-[#1C1C1C] dark:text-[#D4D4D4]">
-      {
-        // If small screen then show only copy right symbol here or if larger screens then show the whole text "Crafted and Built by"
-      }
       <span className="hidden sm:inline">Crafted and Built by</span>{" "}
       <span className="inline sm:hidden">©</span>{" "}
       <a
         className="no-underline text-[#1C1C1C] dark:text-[#D4D4D4] 
-      hover:text-[#166534] dark:hover:text-[#dcfce7]"
+        hover:text-[#166534] dark:hover:text-[#dcfce7]"
         href={metaData.baseUrl}
         target="_blank"
         rel="noopener noreferrer"
