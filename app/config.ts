@@ -2,7 +2,7 @@ export const metaData = {
   baseUrl: "https://mirtauhid.com/",
   title: "Mir Tauhidul Islam - Full-Stack Web Developer",
   name: "Mir Tauhidul Islam",
-  ogImage: "/opengraph-image.png",
+  ogImage: "https://mirtauhid.com/opengraph-image.png",
   description:
     "Full-stack developer specializing in React, Next.js, and Node.js. Passionate about building scalable, high-performance web applications with modern technologies.",
 };
