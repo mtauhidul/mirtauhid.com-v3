@@ -17,7 +17,14 @@ export const metadata: Metadata = {
   },
   description: metaData.description,
   openGraph: {
-    images: metaData.ogImage,
+    images: [
+      {
+        url: metaData.ogImage,
+        width: 1200,
+        height: 630,
+        alt: "Mir Tauhidul Islam Portfolio",
+      },
+    ],
     title: metaData.title,
     description: metaData.description,
     url: metaData.baseUrl,
@@ -37,8 +44,10 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: metaData.name,
     card: "summary_large_image",
+    title: metaData.name,
+    description: metaData.description,
+    images: [metaData.ogImage],
   },
   icons: {
     icon: "/favicon.ico",
@@ -55,6 +64,17 @@ export default function RootLayout({
   return (
     <html lang="en" className={cx(GeistSans.variable, GeistMono.variable)}>
       <head>
+        <meta property="og:title" content={metaData.title} />
+        <meta property="og:description" content={metaData.description} />
+        <meta property="og:image" content={metaData.ogImage} />
+        <meta property="og:url" content={metaData.baseUrl} />
+        <meta property="og:site_name" content={metaData.name} />
+        <meta property="og:type" content="website" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:title" content={metaData.title} />
+        <meta property="twitter:description" content={metaData.description} />
+        <meta property="twitter:image" content={metaData.ogImage} />
+
         <link
           rel="alternate"
           type="application/rss+xml"
