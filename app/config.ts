@@ -1,10 +1,10 @@
 export const metaData = {
-  baseUrl: "http://localhost:3000/",
-  title: "MIR TAUHIDUL ISLAM",
-  name: "Sirius",
+  baseUrl: "https://mirtauhid.com/",
+  title: "Mir Tauhidul Islam - Full-Stack Web Developer",
+  name: "Mir Tauhidul Islam",
   ogImage: "/opengraph-image.png",
   description:
-    "A clean, fast, and lightweight portfolio template built with Next.js, Vercel, and Tailwind CSS for optimal performance.",
+    "Full-stack developer specializing in React, Next.js, and Node.js. Passionate about building scalable, high-performance web applications with modern technologies.",
 };
 
 export const socialLinks = {
