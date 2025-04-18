@@ -1,7 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Logo from "../../public/logo.png";
-import { ThemeSwitch } from "./theme-switch";
 
 const navItems = {
   "/": { name: "Home" },
@@ -10,29 +12,55 @@ const navItems = {
 };
 
 export function Navbar() {
+  const pathname = usePathname();
+
   return (
-    <nav className="lg:mb-16 mb-12 py-5">
-      <div className="flex flex-col md:flex-row md:items-center justify-between">
+    <header className="py-6 mb-16">
+      <nav className="max-w-4xl mx-auto px-5 flex flex-col sm:flex-row sm:items-center justify-between">
         <div className="flex items-center">
-          <Link href="/" aria-label="Home">
-            <Image src={Logo} alt="Logo" width={48} height={48} priority />
+          <Link
+            href="/"
+            aria-label="Home"
+            className="transition-opacity hover:opacity-80 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900"
+          >
+            <Image
+              src={Logo}
+              alt="Logo"
+              width={42}
+              height={42}
+              className="rounded-lg"
+              priority
+            />
           </Link>
         </div>
-        <div className="flex flex-row gap-2 mt-6 md:mt-0 md:ml-auto items-center">
-          {Object.entries(navItems).map(([path, { name }]) => (
-            <Link
-              key={path}
-              href={path}
-              className="transition-all hover:text-black dark:hover:text-neutral-100 hover:bg-gray-100 dark:hover:bg-neutral-800 rounded-md px-3 py-1 flex align-middle relative"
-            >
-              {name}
-            </Link>
-          ))}
-          <div className="ml-2">
+
+        <div className="flex items-center mt-6 sm:mt-0 space-x-1">
+          {Object.entries(navItems).map(([path, { name }]) => {
+            const isActive = pathname === path;
+
+            return (
+              <Link
+                key={path}
+                href={path}
+                className={`
+                  px-4 py-2 rounded-md text-sm font-medium transition-all 
+                  ${
+                    isActive
+                      ? "text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/20"
+                      : "text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800"
+                  }
+                `}
+              >
+                {name}
+              </Link>
+            );
+          })}
+
+          {/* <div className="ml-1 p-1">
             <ThemeSwitch />
-          </div>
+          </div> */}
         </div>
-      </div>
-    </nav>
+      </nav>
+    </header>
   );
 }

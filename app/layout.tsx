@@ -5,7 +5,6 @@ import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
 import Footer from "./components/footer";
 import { Navbar } from "./components/nav";
-import { ThemeProvider } from "./components/theme-switch";
 import { metaData } from "./config";
 import "./global.css";
 
@@ -49,6 +48,13 @@ export const metadata: Metadata = {
     description: metaData.description,
     images: [metaData.ogImage],
   },
+  alternates: {
+    types: {
+      "application/rss+xml": "/rss.xml",
+      "application/atom+xml": "/atom.xml",
+      "application/feed+json": "/feed.json",
+    },
+  },
   icons: {
     icon: "/favicon.ico",
   },
@@ -62,53 +68,35 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={cx(GeistSans.variable, GeistMono.variable)}>
+    <html
+      lang="en"
+      className={cx(GeistSans.variable, GeistMono.variable, "dark")}
+      suppressHydrationWarning
+    >
       <head>
-        <meta property="og:title" content={metaData.title} />
-        <meta property="og:description" content={metaData.description} />
-        <meta property="og:image" content={metaData.ogImage} />
-        <meta property="og:url" content={metaData.baseUrl} />
-        <meta property="og:site_name" content={metaData.name} />
-        <meta property="og:type" content="website" />
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:title" content={metaData.title} />
-        <meta property="twitter:description" content={metaData.description} />
-        <meta property="twitter:image" content={metaData.ogImage} />
-
-        <link
-          rel="alternate"
-          type="application/rss+xml"
-          href="/rss.xml"
-          title="RSS Feed"
-        />
-        <link
-          rel="alternate"
-          type="application/atom+xml"
-          href="/atom.xml"
-          title="Atom Feed"
-        />
-        <link
-          rel="alternate"
-          type="application/feed+json"
-          href="/feed.json"
-          title="JSON Feed"
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            // Enforce dark mode
+            document.documentElement.classList.add('dark');
+            localStorage.setItem('theme', 'dark');
+          `,
+          }}
         />
       </head>
-      <body className="antialiased flex flex-col items-center justify-center mx-auto mt-2 lg:mt-8 mb-20 lg:mb-40">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <main className="flex-auto min-w-0 mt-2 md:mt-6 flex flex-col px-6 sm:px-4 md:px-0 max-w-[1024px] w-full">
-            <Navbar />
-            {children}
-            <Footer />
-            <Analytics />
-            <SpeedInsights />
-          </main>
-        </ThemeProvider>
+      <body className="antialiased bg-gray-950 text-gray-200 min-h-screen">
+        <div className="flex flex-col min-h-screen">
+          <div className="flex-1 flex flex-col items-center">
+            <main className="w-full max-w-4xl px-5 flex-1">
+              <Navbar />
+              <div className="min-h-[calc(100vh-300px)]">{children}</div>
+              <Footer />
+            </main>
+          </div>
+        </div>
+
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

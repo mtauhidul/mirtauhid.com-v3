@@ -2,44 +2,87 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Improved selection color that matches your green theme */
 ::selection {
-  background-color: #47a3f3;
+  background-color: rgba(52, 211, 153, 0.3); /* emerald-400 with opacity */
   color: #fefefe;
 }
 
-/* Light theme colors */
+/* Light theme colors with improved contrast */
 :root {
   --sh-class: #2d5e9d;
   --sh-identifier: #354150;
   --sh-sign: #8996a3;
   --sh-string: #007f7a;
   --sh-keyword: #e02518;
-  --sh-comment: #a19595;
+  --sh-comment: #767676; /* Improved contrast */
   --sh-jsxliterals: #6266d1;
   --sh-property: #e25a1c;
   --sh-entity: #e25a1c;
+
+  /* Add site theme colors for consistency */
+  --primary: #16a34a; /* green-600 */
+  --primary-light: #22c55e; /* green-500 */
+  --primary-dark: #15803d; /* green-700 */
+  --bg: #ffffff;
+  --bg-secondary: #f9fafb;
+  --text: #333333;
+  --text-secondary: #4b5563;
+  --border: #e5e7eb;
 }
 
-/* Dark theme colors */
+/* Dark theme colors with better contrast and consistency */
 .dark {
-  background-color: #121212;
   --sh-class: #4c97f8;
-  --sh-identifier: white;
+  --sh-identifier: #e5e7eb; /* Improved from white for less harshness */
   --sh-sign: #8996a3;
   --sh-string: #0fa295;
   --sh-keyword: #f47067;
-  --sh-comment: #a19595;
-  --sh-jsxliterals: #6266d1;
-  --sh-property: #e25a1c;
-  --sh-entity: #e25a1c;
+  --sh-comment: #a0a0a0; /* Improved visibility */
+  --sh-jsxliterals: #7b7ff6; /* Brightened slightly */
+  --sh-property: #ff7b45; /* Brightened slightly */
+  --sh-entity: #ff7b45; /* Brightened slightly */
+
+  /* Dark theme site colors */
+  --primary: #22c55e; /* green-500 for better visibility on dark background */
+  --primary-light: #34d399; /* green-400 */
+  --primary-dark: #16a34a; /* green-600 */
+  --bg: #121212;
+  --bg-secondary: #1e1e1e;
+  --text: #e5e7eb;
+  --text-secondary: #9ca3af;
+  --border: #2d2d2d;
+
+  background-color: var(--bg);
+  color: var(--text);
 }
 
 html {
   min-width: 360px;
+  scroll-behavior: smooth;
 }
 
+body {
+  @apply text-base antialiased;
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+/* Use CSS variables for consistent theme colors throughout the site */
+.text-primary {
+  color: var(--primary);
+}
+.bg-primary {
+  background-color: var(--primary);
+}
+.border-primary {
+  border-color: var(--primary);
+}
+
+/* Improved prose styling for better readability */
 .prose {
-  @apply text-[#333333] dark:text-[#D4D4D4];
+  @apply text-[#333333] dark:text-[#D4D4D4] max-w-none;
+  font-size: 1.125rem;
+  line-height: 1.75;
 }
 
 .prose .anchor {
@@ -55,12 +98,16 @@ html {
   @apply visible;
 }
 
+/* Improved link styling with consistent colors */
 .prose a {
-  @apply transition-all decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 decoration-[0.1em] font-normal text-[#333333] dark:text-[#D4D4D4];
+  @apply transition-all underline-offset-2 decoration-[0.1em] font-normal;
+  color: var(--primary);
+  text-decoration-color: rgba(52, 211, 153, 0.3);
 }
 
 .prose a:hover {
-  @apply dark:decoration-neutral-400 decoration-neutral-600;
+  @apply underline;
+  text-decoration-color: var(--primary);
 }
 
 .prose .anchor:after {
@@ -72,18 +119,28 @@ html {
   @apply visible;
 }
 
+/* Better code block styling */
 .prose pre {
-  @apply bg-[#F7F7F7] dark:bg-[#181818] rounded-lg overflow-x-auto;
+  @apply bg-[#F7F7F7] dark:bg-[#1a1a1a] rounded-lg overflow-x-auto border border-gray-200 dark:border-gray-800;
+  padding: 1.25rem !important;
+  margin: 1.5rem 0 !important;
 }
 
 .prose code {
-  @apply px-1 py-0.5 rounded-lg;
+  @apply bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded-md text-sm;
+  color: var(--primary-dark);
 }
 
 .prose pre code {
-  @apply p-0;
+  @apply p-0 bg-transparent text-[#333333] dark:text-[#e5e7eb];
   border: initial;
-  line-height: 1.5;
+  font-size: 0.9em;
+  line-height: 1.6;
+}
+
+/* Prevent code wrapping in pre blocks */
+.prose pre code {
+  white-space: pre;
 }
 
 .prose code span {
@@ -92,19 +149,35 @@ html {
 
 .prose img {
   /* Don't apply styles to next/image */
-  @apply m-0;
+  @apply m-0 rounded-lg;
 }
 
-.prose h2,
-h3,
-h4,
-h5,
-h6 {
-  @apply font-medium tracking-tight !important;
+/* Improved heading styles */
+.prose h1 {
+  @apply text-4xl font-bold tracking-tight mb-6 mt-12 !important;
+}
+
+.prose h2 {
+  @apply text-3xl font-semibold tracking-tight mb-4 mt-10 !important;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+}
+
+.prose h3 {
+  @apply text-2xl font-medium tracking-tight mb-3 mt-8 !important;
+}
+
+.prose h4 {
+  @apply text-xl font-medium tracking-tight mb-2 mt-6 !important;
+}
+
+.prose h5,
+.prose h6 {
+  @apply text-lg font-medium tracking-tight mb-2 mt-4 !important;
 }
 
 .prose strong {
-  @apply font-medium;
+  @apply font-semibold text-gray-900 dark:text-white;
 }
 
 .prose > :first-child {
@@ -113,6 +186,27 @@ h6 {
   margin-bottom: 1.25em !important;
 }
 
+/* Enhanced blockquote styling */
+.prose blockquote {
+  @apply border-l-4 border-green-500 pl-4 italic my-6;
+  color: var(--text-secondary);
+}
+
+/* Improved list styling */
+.prose ul,
+.prose ol {
+  @apply my-6 pl-6;
+}
+
+.prose li {
+  @apply mb-2;
+}
+
+.prose li::marker {
+  color: var(--primary);
+}
+
+/* Hide scrollbars but maintain functionality */
 pre::-webkit-scrollbar {
   display: none;
 }
@@ -135,17 +229,96 @@ input[type="email"] {
   font-weight: 500;
 }
 
-table {
+/* Responsive table handling */
+.prose table {
+  @apply w-full my-6 border-collapse border border-gray-300 dark:border-gray-700;
   display: block;
-  max-width: fit-content;
+  max-width: 100%;
   overflow-x: auto;
-  white-space: nowrap;
+}
+
+.prose thead {
+  @apply bg-gray-100 dark:bg-gray-800;
+}
+
+.prose th {
+  @apply px-4 py-2 text-left font-semibold text-gray-900 dark:text-white border border-gray-300 dark:border-gray-700;
+}
+
+.prose td {
+  @apply px-4 py-2 border border-gray-300 dark:border-gray-700;
+}
+
+.prose .callout {
+  @apply bg-gray-100 dark:bg-gray-800 p-4 rounded-lg my-6 border-l-4 border-green-500;
 }
 
 .prose .callout > p {
   margin: 0 !important;
 }
 
+/* Better text wrapping for titles */
 .title {
   text-wrap: balance;
+}
+
+/* Card and container components */
+.card {
+  @apply bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl shadow-sm overflow-hidden;
+}
+
+.container {
+  @apply max-w-4xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* Animation utilities */
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Focus styles for better accessibility */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Improved button styling */
+.btn {
+  @apply inline-flex items-center justify-center px-4 py-2 rounded-lg font-medium transition-colors;
+}
+
+.btn-primary {
+  @apply bg-green-500 hover:bg-green-600 text-white;
+}
+
+.btn-secondary {
+  @apply bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100;
+}
+
+.btn-outline {
+  @apply border border-green-500 text-green-500 hover:bg-green-500/10;
 }
