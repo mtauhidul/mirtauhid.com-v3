@@ -1,9 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import Logo from "../../public/logo.png";
 
 const navItems = {
   "/": { name: "Home" },
@@ -23,14 +21,9 @@ export function Navbar() {
             aria-label="Home"
             className="transition-opacity hover:opacity-80 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900"
           >
-            <Image
-              src={Logo}
-              alt="Logo"
-              width={42}
-              height={42}
-              className="rounded-lg"
-              priority
-            />
+            <div className="inline-block text-3xl font-medium px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded-lg border-2 border-green-200 dark:border-green-800">
+              M
+            </div>
           </Link>
         </div>
 

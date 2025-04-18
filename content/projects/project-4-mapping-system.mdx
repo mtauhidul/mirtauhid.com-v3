@@ -6,51 +6,71 @@ tags: "JavaScript, React, MUI, Google Maps, Data Visualization, CSV, Excel, Geo 
 image: "/projects/project-4-mapping-system.png"
 ---
 
-# Maplysis
-
 ![Maplysis Logo](/projects/maplysis/logo.png)
 
-**Maplysis** is a powerful, yet simple tool developed for **Geo data analysis** and **decision-making**. A very similar algorithm to **K-nearest-neighbor** is used to identify target zip codes and visualize them on an interactive map.
+Have you ever wished you could see the world—one zip code at a time—to make smarter decisions on where to focus your efforts? **Maplysis** turns raw geo data into actionable insights, helping you target the right areas with ease.
 
-## A Real-World Use Case
+## Project Overview
 
-Imagine an organization that wants to conduct **medical camps** at various points across the country for specific **health-related campaigns**. Instead of targeting every state, they are looking for strategic points from where they can access the majority of patients.
+**Maplysis** is a user-friendly web app built to analyze location-based datasets, applying a K‑nearest‑neighbor–like algorithm to identify and visualize optimal target zones on an interactive map.
 
-They already have the **zip codes** and the corresponding number of patients. Using **Maplysis**, they can:
+## Real-World Scenario
 
-- Upload an **Excel file** containing the zip codes and patient data (**dre**).
-- Set an appropriate **radius** and the **minimum number of patients** required under a zip code for that area to be eligible for a camp.
-- **Visualize the target zip codes** on the map to cover the majority of the patients.
+Picture an NGO that wants to run medical camps across a region. They have zip codes and patient counts but need to know where to set up for maximum impact.
 
-![A real example](/projects/maplysis/maplysis-2.png)
+With Maplysis, they can:
 
-After generating the map, they can visually analyze the data and download the generated **Excel file**. The file will provide the target zip codes, their corresponding **dre’s**, and the **average distance** from nearby zip codes, helping in effective decision-making.
+- Upload an **Excel/CSV** file of zip codes and patient data.
+- Choose a **radius** (e.g., 10 miles) and a **minimum patient threshold** for eligibility.
+- See **target zip codes** highlighted on the map, covering the highest patient densities.
 
-![A real example](/projects/maplysis/maplysis-3.png)
+![Maplysis Example](/projects/maplysis/maplysis-2.png)
 
-Generated Excel file.
+After generation, the app produces a downloadable report showing each selected zip code, its patient count, and average distance to neighbors—perfect for data-driven planning.
 
-## Tools Used
+## How It Works
 
-Maplysis was developed using the following technologies:
+1. **Data Input**: Drag and drop your Excel or CSV file into the upload panel.
+2. **Parameter Selection**: Set the search radius and minimum patient count.
+3. **Algorithm Execution**: Maplysis applies a proximity-based clustering algorithm to identify key zones.
+4. **Interactive Map**: View colored markers and radius overlays on an embedded Google Map.
+5. **Report Download**: Export an Excel file listing selected zip codes and related metrics.
 
-- **Frontend**: Built with **React** and **Material UI** for a clean and user-friendly interface.
-- **JavaScript**: Utilized for logic building and algorithm implementation.
-- **Google Maps**: Implemented for **data visualization**.
-- **File Support**: Accepts **Excel/CSV files** for data input and result generation.
-- **Deployment**: The platform is hosted on **Vercel** for seamless access.
+![Maplysis Workflow](/projects/maplysis/maplysis-3.png)
 
-## How to Use Maplysis
+## Key Features
 
-![A real example](/projects/maplysis/maplysis-1.png)
+- 🗺️ **Real-Time Map Visualization**: Instant display of target zones with intuitive markers and overlays.
+- ⚙️ **Parameter Control**: Easily tweak radius and patient thresholds to refine results.
+- 📊 **Data Export**: Download detailed Excel reports for stakeholder presentations.
+- 📂 **File Flexibility**: Supports both CSV and Excel formats for seamless data handling.
+- 🎨 **Clean UI**: Built with React and Material UI for an accessible, attractive interface.
 
-1. Visit the platform: [maplysis.com](http://maplysis.com)
-2. Download the demo [Excel File](/projects/maplysis/demo.xlsx) for testing purposes.
-3. Upload the **Excel file** to the platform.
-4. Set the **radius** to under 10 miles and the **minimum zip codes count** to 7 or 8 under given radius.
-5. Click **Generate** to see the map visualization.
-6. Zoom in or out to explore the result, and click **Download** to get a file with the identified target zip codes and other relevant data.
+## Impact and Benefits
 
-![Maplysis ](/projects/maplysis/maplysis-4.png)
+Using Maplysis, organizations can:
 
-Maplysis provides a simple, yet powerful solution for **geo-based decision-making**, helping organizations optimize their efforts by focusing on areas with the highest impact.
+- **Optimize Resources**: Focus efforts on high-impact areas, reducing time and cost.
+- **Improve Outreach**: Increase camp attendance by targeting zones with the highest patient concentration.
+- **Simplify Analysis**: Replace manual calculations with a one-click solution.
+
+## Technical Highlights
+
+- **Frontend**: React, Material UI for responsive design.
+- **Mapping**: Google Maps API powers the interactive map components.
+- **Algorithm**: Custom K‑nearest‑neighbor–style clustering implemented in JavaScript.
+- **Deployment**: Hosted on Vercel for fast global access.
+
+## Next Steps
+
+- 🌐 **Multi-Layer Data**: Add support for demographic and socioeconomic overlays.
+- 📱 **Mobile Optimization**: Enhance touch controls for tablets and smartphones.
+- 🔗 **API Integration**: Connect with third-party data sources (e.g., census or health databases).
+
+## Try Maplysis Today
+
+Ready to pinpoint your next target zone?  
+[**Launch Maplysis**](https://maplysis.com/)
+
+Download a sample file to get started:  
+[Demo Excel File](/projects/maplysis/demo.xlsx)

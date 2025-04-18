@@ -124,13 +124,16 @@ export default function Project({ params }) {
       </div>
 
       {/* Project banner image */}
-      <div className="relative w-full h-80 md:h-96 mb-10 rounded-xl overflow-hidden">
-        <img
-          src={`/projects/${project.slug}.png`}
-          alt={project.metadata.title}
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+      <div className="relative w-full mb-10 overflow-hidden rounded-xl">
+        <div className="aspect-[16/9] w-full bg-gray-100 dark:bg-gray-800">
+          <img
+            src={`/projects/${project.slug}.png`}
+            alt={project.metadata.title}
+            className="w-full h-full object-contain"
+            loading="eager"
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none"></div>
       </div>
 
       {/* Project header */}
